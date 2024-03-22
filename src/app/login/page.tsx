@@ -26,7 +26,7 @@ export default function Page() {
 
   
   const onSubmit: SubmitHandler<Inputs> =  async (data) =>{
-    const responseany = await loginUser(data)
+    const response:any = await loginUser(data)
     if(response && response.data.statusCode === 200){
       router.push("/profile");
     }
