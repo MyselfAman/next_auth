@@ -6,12 +6,9 @@ connectDB();
 
 export async function GET(request: NextRequest) {
   try {
-    console.log("hi");
-    console.log(request.cookies);
     
     let token = request.cookies.get('authApiKey')?.value || '';
     let decoded:any = jwt.verify(token, process.env.SECRET_KEY!);
-    console.log(decoded)
     const currentUser = await User.findById(decoded.id);
     currentUser.password = undefined
     return NextResponse.json({

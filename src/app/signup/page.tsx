@@ -29,8 +29,8 @@ export default function Page() {
   } = useForm<Inputs>();
   const router = useRouter()
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const response = await signUpUser(data)
-    if(response.data.statusCode === 200){
+    const response:any = await signUpUser(data)
+    if(response && response.data.statusCode === 200){
       router.push("/login")
     }
     
